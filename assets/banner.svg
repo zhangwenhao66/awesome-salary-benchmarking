@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#051329" />
+    </linearGradient>
+
+    <!-- Accent Emerald & Cyan Gradients -->
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0e7490" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="bar-grad-3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1e40af" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="text-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#e2e8f0" />
+      <stop offset="70%" stop-color="#6ee7b7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <radialGradient id="halo-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#10b981" flood-opacity="0.35" />
+    </filter>
+
+    <filter id="glow-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- CSS Animations for Dynamic Feel -->
+    <style>
+      .pulse-ring {
+        animation: pulseScale 3.5s ease-out infinite;
+        transform-origin: 940px 190px;
+      }
+      .pulse-ring-delayed {
+        animation: pulseScale 3.5s ease-out infinite 1.75s;
+        transform-origin: 940px 190px;
+      }
+      .shimmer-line {
+        stroke-dasharray: 8 6;
+        animation: dashScroll 25s linear infinite;
+      }
+      .float-badge {
+        animation: floatAnim 4s ease-in-out infinite alternate;
+      }
+      .bar-grow-1 {
+        animation: barBounce1 3s ease-in-out infinite alternate;
+        transform-origin: bottom;
+      }
+      .bar-grow-2 {
+        animation: barBounce2 3.6s ease-in-out infinite alternate;
+        transform-origin: bottom;
+      }
+      .bar-grow-3 {
+        animation: barBounce3 3.2s ease-in-out infinite alternate;
+        transform-origin: bottom;
+      }
+      .node-pulse {
+        animation: nodeFlash 2.5s ease-in-out infinite;
+      }
+
+      @keyframes pulseScale {
+        0% { transform: scale(0.6); opacity: 0.8; stroke-width: 2px; }
+        100% { transform: scale(1.6); opacity: 0; stroke-width: 0.5px; }
+      }
+      @keyframes dashScroll {
+        to { stroke-dashoffset: -300; }
+      }
+      @keyframes floatAnim {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-7px); }
+      }
+      @keyframes nodeFlash {
+        0%, 100% { opacity: 0.3; r: 3.5px; }
+        50% { opacity: 1; r: 6px; }
+      }
+      @keyframes barBounce1 {
+        0% { transform: scaleY(0.92); }
+        100% { transform: scaleY(1.04); }
+      }
+      @keyframes barBounce2 {
+        0% { transform: scaleY(1.05); }
+        100% { transform: scaleY(0.90); }
+      }
+      @keyframes barBounce3 {
+        0% { transform: scaleY(0.94); }
+        100% { transform: scaleY(1.06); }
+      }
+    </style>
+  </defs>
+
+  <!-- Card Outer Frame -->
+  <rect width="1200" height="380" rx="20" fill="url(#bg-grad)" stroke="#1e293b" stroke-width="2" />
+
+  <!-- Subtle Ambient Halo Behind Chart -->
+  <circle cx="940" cy="190" r="220" fill="url(#halo-glow)" />
+
+  <!-- Background Grid & Compensation Trendlines -->
+  <g opacity="0.07" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="120" x2="1200" y2="120" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="240" x2="1200" y2="240" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="120" y1="0" x2="120" y2="380" />
+    <line x1="240" y1="0" x2="240" y2="380" />
+    <line x1="360" y1="0" x2="360" y2="380" />
+    <line x1="480" y1="0" x2="480" y2="380" />
+    <line x1="600" y1="0" x2="600" y2="380" />
+    <line x1="720" y1="0" x2="720" y2="380" />
+    <line x1="840" y1="0" x2="840" y2="380" />
+    <line x1="960" y1="0" x2="960" y2="380" />
+    <line x1="1080" y1="0" x2="1080" y2="380" />
+  </g>
+
+  <!-- Compensation Percentile Curve Waves -->
+  <g fill="none" opacity="0.25">
+    <!-- P90 Curve -->
+    <path class="shimmer-line" d="M 0,220 Q 300,160 600,180 T 1200,90" stroke="#10b981" stroke-width="2" />
+    <!-- P50 Median Curve -->
+    <path class="shimmer-line" d="M 0,270 Q 300,220 600,230 T 1200,160" stroke="#06b6d4" stroke-width="2.5" />
+    <!-- P25 Curve -->
+    <path class="shimmer-line" d="M 0,310 Q 300,270 600,290 T 1200,230" stroke="#3b82f6" stroke-width="1.5" />
+  </g>
+
+  <!-- Right Visual: Salary Bands & Market Percentiles Chart -->
+  <g transform="translate(730, 45)">
+    <!-- Chart Container / Card -->
+    <rect width="400" height="290" rx="16" fill="#0c162d" fill-opacity="0.8" stroke="#1e3a5f" stroke-width="1.5" filter="url(#soft-shadow)" />
+
+    <!-- Pulse Waves from Target Median -->
+    <circle cx="210" cy="145" r="70" fill="none" stroke="#10b981" class="pulse-ring" opacity="0.6" />
+    <circle cx="210" cy="145" r="70" fill="none" stroke="#06b6d4" class="pulse-ring-delayed" opacity="0.6" />
+
+    <!-- Chart Header -->
+    <text x="24" y="38" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1">MARKET BENCHMARK PERCENTILES</text>
+    <rect x="290" y="24" width="86" height="20" rx="10" fill="#064e3b" />
+    <text x="333" y="38" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">LIVE DATA</text>
+
+    <!-- Horizontal Grid Lines inside Chart -->
+    <line x1="24" y1="80" x2="376" y2="80" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3" />
+    <line x1="24" y1="130" x2="376" y2="130" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3" />
+    <line x1="24" y1="180" x2="376" y2="180" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3" />
+    <line x1="24" y1="230" x2="376" y2="230" stroke="#1e293b" stroke-width="1" stroke-dasharray="3 3" />
+
+    <!-- Y-Axis Labels -->
+    <text x="18" y="84" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" text-anchor="end">$240k</text>
+    <text x="18" y="134" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" text-anchor="end">$180k</text>
+    <text x="18" y="184" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" text-anchor="end">$120k</text>
+    <text x="18" y="234" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" text-anchor="end">$60k</text>
+
+    <!-- Salary Bars: Level 3, Level 4, Level 5, Level 6 -->
+    <!-- L3 Junior -->
+    <g transform="translate(60, 230)">
+      <rect class="bar-grow-1" x="0" y="-80" width="36" height="80" rx="6" fill="url(#bar-grad-1)" />
+      <text x="18" y="20" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">L3</text>
+    </g>
+
+    <!-- L4 Mid-Level -->
+    <g transform="translate(130, 230)">
+      <rect class="bar-grow-2" x="0" y="-125" width="36" height="125" rx="6" fill="url(#bar-grad-2)" />
+      <text x="18" y="20" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">L4</text>
+    </g>
+
+    <!-- L5 Senior -->
+    <g transform="translate(200, 230)">
+      <rect class="bar-grow-3" x="0" y="-165" width="36" height="165" rx="6" fill="url(#bar-grad-1)" />
+      <text x="18" y="20" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" text-anchor="middle">L5</text>
+    </g>
+
+    <!-- L6 Staff / Principal -->
+    <g transform="translate(270, 230)">
+      <rect class="bar-grow-2" x="0" y="-200" width="36" height="200" rx="6" fill="url(#bar-grad-3)" />
+      <text x="18" y="20" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">L6</text>
+    </g>
+
+    <!-- Trend Indicator Overlay Line -->
+    <path d="M 78,145 L 148,105 L 218,65 L 288,30" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" filter="url(#glow-blur)" />
+    <circle cx="78" cy="145" r="4" fill="#fbbf24" class="node-pulse" />
+    <circle cx="148" cy="105" r="4" fill="#fbbf24" class="node-pulse" />
+    <circle cx="218" cy="65" r="5" fill="#f59e0b" class="node-pulse" />
+    <circle cx="288" cy="30" r="4" fill="#fbbf24" class="node-pulse" />
+
+    <!-- Floating Metric Chip -->
+    <g transform="translate(195, 80)" class="float-badge">
+      <rect width="165" height="42" rx="10" fill="#09182a" stroke="#10b981" stroke-width="1.5" filter="url(#soft-shadow)" />
+      <text x="14" y="19" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600">P75 BENCHMARK</text>
+      <text x="14" y="34" fill="#10b981" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="800">$198,500 / yr</text>
+    </g>
+  </g>
+
+  <!-- Left Content: Hero Title, Description, and Feature Pills -->
+  <g transform="translate(70, 0)">
+    <!-- Category Pill Badge -->
+    <g transform="translate(0, 56)">
+      <rect width="260" height="30" rx="15" fill="#062d27" stroke="#10b981" stroke-width="1.2" />
+      <circle cx="15" cy="15" r="5" fill="#10b981" class="node-pulse" />
+      <text x="30" y="19.5" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.2">
+        COMPENSATION INTELLIGENCE
+      </text>
+    </g>
+
+    <!-- Main Headline with Gradient Shimmer -->
+    <g transform="translate(0, 132)">
+      <text x="0" y="0" fill="url(#text-shimmer)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="40" font-weight="800" letter-spacing="-0.5">
+        Awesome Salary Benchmarking
+      </text>
+    </g>
+
+    <!-- Subtitle / Value Proposition -->
+    <g transform="translate(0, 172)">
+      <text x="0" y="0" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="400">
+        Curated SaaS Platforms, Real-Time Market Data, Pay Equity &amp; Open Datasets
+      </text>
+    </g>
+
+    <!-- Feature Highlights / Capability Badges -->
+    <g transform="translate(0, 218)">
+      <!-- Pill 1: Market Pricing -->
+      <g transform="translate(0, 0)">
+        <rect width="140" height="34" rx="8" fill="#0b223a" stroke="#1e3a5f" stroke-width="1" />
+        <text x="14" y="21" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">📊 Market Pricing</text>
+      </g>
+
+      <!-- Pill 2: Pay Equity & Bands -->
+      <g transform="translate(150, 0)">
+        <rect width="155" height="34" rx="8" fill="#0b223a" stroke="#1e3a5f" stroke-width="1" />
+        <text x="14" y="21" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">⚖️ Pay Equity Bands</text>
+      </g>
+
+      <!-- Pill 3: Total Rewards -->
+      <g transform="translate(315, 0)">
+        <rect width="145" height="34" rx="8" fill="#0b223a" stroke="#1e3a5f" stroke-width="1" />
+        <text x="14" y="21" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">💎 Total Rewards</text>
+      </g>
+
+      <!-- Pill 4: Open Source -->
+      <g transform="translate(470, 0)">
+        <rect width="140" height="34" rx="8" fill="#0b223a" stroke="#1e3a5f" stroke-width="1" />
+        <text x="14" y="21" fill="#c084fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">🔓 Open Datasets</text>
+      </g>
+    </g>
+
+    <!-- Footer Stats / Architecture Summary -->
+    <g transform="translate(0, 298)">
+      <line x1="0" y1="0" x2="610" y2="0" stroke="#1e293b" stroke-width="1" />
+      <text x="0" y="22" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="500">
+        HRIS Integration • EU Pay Transparency Ready • Geographic Differentials • Leveling Architecture
+      </text>
+    </g>
+  </g>
+</svg>
